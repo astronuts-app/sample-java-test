@@ -11,6 +11,6 @@ class AppTest {
     @Test
     void testAdd() {
         App app = new App();
-        assertEquals(6, app.add(3, 3));
+        assertEquals(7, app.add(3, 4));
     }
 }
