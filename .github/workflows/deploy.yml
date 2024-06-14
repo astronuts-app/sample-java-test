@@ -36,7 +36,7 @@ jobs:
 
 
       - name: Run Astronuts Code Quality Checks
-        uses: astronuts-app/astronuts-code-quality-action@v3
+        uses: astronuts-app/astronuts-code-quality-action@v4
         with:
           sourceLanguage: 'java'
           buildSystem: 'gradle'
