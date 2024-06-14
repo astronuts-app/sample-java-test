@@ -8,10 +8,14 @@ on:
       - feature/*
       - bugfix/*
       - hotfix/*
+  pull_request:
+    branches:
+      - main
 
 
 permissions:
   contents: read
+
 
 jobs:
   Build:
