@@ -34,7 +34,6 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew clean build --console=plain --scan
 
-
       - name: Run Astronuts Code Quality Checks
         uses: astronuts-app/astronuts-code-quality-action@v4
         with:
