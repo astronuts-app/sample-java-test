@@ -35,7 +35,7 @@ jobs:
         run: ./gradlew clean build --console=plain --scan
 
       - name: Run Astronuts Code Quality Checks
-        uses: astronuts-app/astronuts-code-quality-action@v4
+        uses: astronuts-app/astronuts-code-quality-action@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
         
