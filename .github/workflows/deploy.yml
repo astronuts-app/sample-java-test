@@ -37,7 +37,6 @@ jobs:
       - name: Run Astronuts Code Quality Checks
         uses: astronuts-app/astronuts-code-quality-action@v4
         with:
-          sourceLanguage: 'java'
-          buildSystem: 'gradle'
-#          failOnError: true
-#          serverUrl: ${{ vars.HELIOS_SERVER_URL }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+        
+          
