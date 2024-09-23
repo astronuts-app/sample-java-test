@@ -2,7 +2,7 @@
 
 **for gradle projects**
 
-Apply the **JaCoCo Plugin** to capture and visualize code coverage testing results.
+Apply the **JaCoCo Plugin** to capture and visualize code coverage testing result.
 
 ```groovy
 apply plugin: 'jacoco'
