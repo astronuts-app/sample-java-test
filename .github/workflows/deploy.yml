@@ -38,6 +38,6 @@ jobs:
         uses: astronuts-app/astronuts-code-quality-action@v7-alpha
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          serverUrl: ${{ var.SERVER_URL }}
+          serverUrl: ${{ vars.SERVER_URL }}
         
           
