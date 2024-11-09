@@ -1,0 +1,32 @@
+pr-analysis:
+  walkthrough-enabled: true
+  review-enabled: true
+  ignore-low-priority-bugs: true
+  suggest-auto-fix: true
+  auto-update-title: true
+  auto-update-description: true
+  max-num-code-suggestions: 20
+  max-files-for-auto-trigger: 500
+  remove-outdated-comments: true
+static-analysis:
+  metrics:
+    - bugs
+    - code_smells
+    - coverage
+    - complexity
+    - file_complexity
+    - duplicated_lines_density
+    - sqale_rating
+    - reliability_rating
+    - security_hotspots
+    - security_rating
+    - x_total_tech_debt_minutes
+    - tests
+    - x_vulnerability_count
+  source-language: java
+  root-dir: "./src"
+  build-system: gradle
+  fail-on-error: true
+  test-report-root: "./build/test-results/test" 
+  coverage-lib: "jacoco"
+  coverage-report-paths: "build/reports/jacoco/test" 
