@@ -33,11 +33,12 @@ jobs:
 
       - name: Build with Gradle
         run: ./gradlew clean build --console=plain --scan
-
       - name: Run Astronuts Code Quality Checks
-        uses: astronuts-app/astronuts-code-quality-action@v7-alpha
+        uses: astronuts-app/astronuts-ai@v3.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          serverUrl: ${{ vars.SERVER_URL }}
+          prReview: true
+          prWalkthrough: true
+          staticAnalysis: true
         
           
