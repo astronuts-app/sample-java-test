@@ -23,7 +23,7 @@ static-analysis:
     - x_total_tech_debt_minutes
     - tests
     - x_vulnerability_count
-  source-language: java
+  source-language: "java"
   root-dir: "./src"
   build-system: "gradle"
   fail-on-error: true
