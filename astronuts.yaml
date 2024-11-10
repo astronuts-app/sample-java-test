@@ -24,7 +24,6 @@ static-analysis:
     - tests
     - x_vulnerability_count
   source-language: "java"
-  root-dir: "./src"
   build-system: "gradle"
   fail-on-error: true
   test-report-root: "./build/test-results/test" 
