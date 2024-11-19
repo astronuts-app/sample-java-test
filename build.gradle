@@ -18,8 +18,11 @@ repositories {
 
 dependencies {
     implementation 'com.google.guava:guava:31.0.1-jre'
-
+    implementation 'net.sourceforge.tess4j:tess4j:5.4.0'
+    implementation 'com.google.guava:guava:31.0.1-jre'
     testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+    implementation 'org.apache.pdfbox:pdfbox:2.0.29'           // PDF handling
+    implementation 'org.apache.pdfbox:pdfbox-tools:2.0.29'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.8.1'
 }
 

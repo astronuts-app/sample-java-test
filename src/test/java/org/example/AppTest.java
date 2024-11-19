@@ -13,4 +13,16 @@ class AppTest {
         App app = new App();
         assertEquals(6, app.add(3, 3));
     }
+
+    @Test
+    public void testExtractTextFromImage() {
+        // Assuming you have a test image file with text "Hello World"
+        String imagePath = "path/to/test/image.png"; // Replace with actual test file
+        try {
+            String text = App.extractTextFromImage(imagePath);
+            assertTrue(text.contains("Hello World"), "OCR output should contain 'Hello World'");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

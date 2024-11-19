@@ -3,9 +3,53 @@
  */
 package org.example;
 
+import net.sourceforge.tess4j.Tesseract;
+import net.sourceforge.tess4j.TesseractException;
+
+import java.io.File;
+
 public class App {
     public static void main(String[] args) {
         System.out.println("Hello, World!");
+        // Example usage of the OCR method
+        if (args.length == 0) {
+            System.err.println("Please provide the path to an image file as an argument.");
+            System.exit(1);
+        }
+
+        String imagePath = args[0];// Get the first argument as the image path
+        String pdfPath = args[1];
+        try {
+            String text = extractTextFromImage(imagePath);
+            System.out.println("Extracted Text: \n" + text);
+        } catch (Exception e) {
+            System.err.println("Error during OCR: " + e.getMessage());
+        }
+
+        PDFOCRProcessor processor = new PDFOCRProcessor("tessdata"); // Initialize with tessdata path
+
+        try {
+            // Process PDF
+            System.out.println("Processing PDF...");
+            String pdfText = processor.extractTextFromPDF(pdfPath);
+            System.out.println("Extracted Text from PDF:\n" + pdfText);
+
+            // Process Image
+            System.out.println("Processing Image...");
+            // Optionally save both outputs to files
+            processor.saveTextToFile(pdfText, "pdf_output.txt");
+
+
+        } catch (Exception e) {
+            System.err.println("Error during OCR: " + e.getMessage());
+        }
+
+    }
+
+    public static String extractTextFromImage(String imagePath) throws TesseractException {
+        Tesseract tesseract = new Tesseract();
+        tesseract.setDatapath("tessdata"); // Path to tessdata folder
+        return tesseract.doOCR(new File(imagePath));
     }
 
     public int add(int a, int b) {
