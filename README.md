@@ -1,17 +1,21 @@
-## Steps to Run Astronuts Code Quality Checks on your Java Project
 
-**for gradle projects**
+---
 
-Apply the **JaCoCo Plugin** to capture and visualize code coverage testing results.
+## Steps to Run Astronuts Code Quality Checks on Your Java Project
+
+### For Gradle Projects
+
+Follow these steps to set up Astronuts code quality checks on your Gradle-based Java project.
+
+### 1. Apply the JaCoCo Plugin
+The JaCoCo plugin is required to capture and visualize code coverage during testing.
 
 ```groovy
 apply plugin: 'jacoco'
 ```
 
-
-
-Add Repositories
-Ensure your project uses mavenCentral for resolving dependencies:
+### 2. Configure Repositories
+Ensure your project resolves dependencies from Maven Central.
 
 ```groovy
 repositories {
@@ -19,8 +23,9 @@ repositories {
 }
 ```
 
+### 3. Add Dependencies
+Include the necessary dependencies for your project and testing.
 
-Add the necessary dependencies for your project and testing:
 ```groovy
 dependencies {
     implementation 'com.google.guava:guava:31.0.1-jre'
@@ -28,8 +33,10 @@ dependencies {
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.8.1'
 }
 ```
-Configure Java Toolchain
-Specify the Java toolchain for the project:
+
+### 4. Configure Java Toolchain
+Specify the Java toolchain version for your project.
+
 ```groovy
 java {
     toolchain {
@@ -38,43 +45,48 @@ java {
 }
 ```
 
-Configure Test Task
-Ensure the test task is configured to generate JaCoCo reports after tests run:
+### 5. Configure Test Task for JaCoCo Reporting
+Ensure the test task generates JaCoCo reports after tests are executed.
+
 ```groovy
 test {
-    finalizedBy jacocoTestReport // report is always generated after tests run
+    finalizedBy jacocoTestReport // Generate the report after tests run
 }
 
 tasks.named('test') {
-    // Use JUnit Platform for unit tests.
-    useJUnitPlatform()
+    useJUnitPlatform() // Use JUnit Platform for unit tests
 }
 ```
 
-Configure JaCoCo
-Add configuration for generating JaCoCo reports:
+### 6. Configure JaCoCo Report Generation
+Set up JaCoCo to generate XML reports.
+
 ```groovy
 jacocoTestReport {
-    dependsOn test // tests are required to run before generating the report
+    dependsOn test // Ensure tests run before generating the report
 
     reports {
-        xml.required = true
+        xml.required = true // Generate the XML report
     }
 }
-
 ```
 
-Ensure the build task depends on the JaCoCo report generation:
+### 7. Ensure JaCoCo Report Runs with Build
+Ensure the build task depends on the JaCoCo report generation.
+
 ```groovy
 tasks.build {
     dependsOn jacocoTestReport
 }
 ```
+
+---
+
 ## Integration with CI/CD Workflow
 
-You can integrate Astronuts Code Quality action into your build scripts   , which is especially useful in continuous integration (CI) environments where tests are run automatically.
+You can integrate Astronuts Code Quality checks into your continuous integration (CI) workflow to run tests and code quality checks automatically.
 
-Add this to your workflow file to run Astronuts Code Quality Checks on your Java project:
+Add the following to your workflow file to run Astronuts Code Quality Checks on your Gradle-based Java project:
 
 ```yaml
       - name: Run Astronuts Code Quality Checks
@@ -83,4 +95,8 @@ Add this to your workflow file to run Astronuts Code Quality Checks on your Java
           sourceLanguage: 'java'
           buildSystem: 'gradle'
 ```
-For more info you can check the [Astronuts Code Quality Action](https://github.com/marketplace/actions/astronuts-code-quality-action).
+
+For more information, refer to the [Astronuts Code Quality Action documentation](https://github.com/marketplace/actions/astronuts-code-quality-action).
+
+---
+
